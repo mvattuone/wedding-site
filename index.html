@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 boilerplate – all you really need…</title>
+	<link rel="stylesheet" href="main.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <nav>
+          <button type="button">
+            <i class="fa fa-bars" aria-hidden="true">
+              <span class="sr-only">Open sidebar menu.</span>
+            </i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+	<!--Jumbotron-->
+	<main>
+		<div class="container">
+			<h1 class="jumbotron-heading">Slideout Drawer</h1>
+			<p class="lead text-muted">
+				<span>Select the hamburger menu in the navigation bar.</span><br>
+				<span>by <a href="https://matthewpolizzotti.com" target="_blank">matthewpolizzotti.com</a></span>
+			</p>
+		</div>
+	</main>
+	
+	
+	<!--Slideout Drawer-->
+	<div id="slideout" class="slideout">
+		<div class="slideout-header">
+			<button id="slideoutCloseButton" href="#" class="btn btn-link slideout-close" title="Close">
+				<i class="fa fa-times fa-lg">
+					<span class="sr-only">Close slideout menu.</span>
+				</i>
+			</button>
+		</div>
+		<div class="slideout-content">
+			<section class="slideout-section">
+				<h2 class="section-title">Explore</h2>
+				<ul class="list-unstyled section-list">
+					<li class="section-list-item" role="presentation">
+						<a href="#">Home</a>
+					</li>
+					<li class="section-list-item" role="presentation">
+						<a href="#">About</a>
+					</li>
+					<li class="section-list-item" role="presentation">
+						<a href="#">Contact</a>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+	<div id="slideoutMask" class="slideout-mask"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
