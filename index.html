@@ -1,68 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>HTML5 boilerplate – all you really need…</title>
-	<link rel="stylesheet" href="main.css">
-	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>Bonecrosier 2020</title>
+    <link rel="stylesheet" href="main.css">
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
 
-<body id="home">
-  <div class="wrapper">
-    <header>
-      <div class="container">
+  <body id="home">
+    <div class="wrapper">
+      <header>
         <nav>
-          <button type="button">
-            <i class="fa fa-bars" aria-hidden="true">
-              <span class="sr-only">Open sidebar menu.</span>
-            </i>
-          </button>
+          <label for="rsvp" role="button" class="OpenMenuButton">RSVP</label>
+          <label for="info" role="button" class="OpenMenuButton">Info</label>
         </nav>
-      </div>
-    </header>
+      </header>
 
-	<!--Jumbotron-->
-	<main>
-		<div class="container">
-			<h1 class="jumbotron-heading">Slideout Drawer</h1>
-			<p class="lead text-muted">
-				<span>Select the hamburger menu in the navigation bar.</span><br>
-				<span>by <a href="https://matthewpolizzotti.com" target="_blank">matthewpolizzotti.com</a></span>
-			</p>
-		</div>
-	</main>
-	
-	
-	<!--Slideout Drawer-->
-	<div id="slideout" class="slideout">
-		<div class="slideout-header">
-			<button id="slideoutCloseButton" href="#" class="btn btn-link slideout-close" title="Close">
-				<i class="fa fa-times fa-lg">
-					<span class="sr-only">Close slideout menu.</span>
-				</i>
-			</button>
-		</div>
-		<div class="slideout-content">
-			<section class="slideout-section">
-				<h2 class="section-title">Explore</h2>
-				<ul class="list-unstyled section-list">
-					<li class="section-list-item" role="presentation">
-						<a href="#">Home</a>
-					</li>
-					<li class="section-list-item" role="presentation">
-						<a href="#">About</a>
-					</li>
-					<li class="section-list-item" role="presentation">
-						<a href="#">Contact</a>
-					</li>
-				</ul>
-			</section>
-		</div>
-	</div>
-	<div id="slideoutMask" class="slideout-mask"></div>
-  </div>
-  <script src="main.js"></script>
-</body>
+        <main>
+          <h1>Bonecrosier</h1>
+        </main>
+    </div> 
+        <input type="checkbox" data-menu id="rsvp" hidden>
+        <aside class="DrawerMenu rsvp">
+          <nav class="Menu">
+            <h2>RSVP</h2>
+            <label for="rsvp" role="button" class="OpenMenuButton">X</label>
+          </nav>
+          <!-- <label for="rsvp" class="MenuOverlay"></label> -->
+        </aside>
+        <input type="checkbox" data-menu id="info" hidden>
+        <aside class="DrawerMenu info">
+          <nav class="Menu">
+            <h2>Info</h2>
+            <label for="info" role="button" class="OpenMenuButton">X</label>
+          </nav>
+          <!-- <label for="info" class="MenuOverlay"></label> -->
+        </aside>
+    <script src="main.js"></script>
+  </body>
 </html>

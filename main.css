@@ -147,126 +147,109 @@ table {
 \*------------------------------------*/
 /* GO! */
 
-@import "fonts/cardinalfruit.css";
+html {
+  font-size: calc(112.5% + 2 * (100vw - 600px) / 400);
+}
 
 .wrapper {
-  margin: 0 40px;
-}
-
-.container {
   display: flex;
-
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  min-height: 100vh;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: "Cardinal Fruit";
 }
 
-h1 {
-  font-family: "Cardinal Fruit";
-  font-size: 72px;
+.OpenMenuButton {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 900;
+  word-spacing: 140%;
+  letter-spacing: 4px;
 }
-/* Color Palette
-----------------------------------------------*/
-/* Variables
-----------------------------------------*/
-/* Mixins
------------------------------------------------*/
-/* Slideout
------------------------------------------------*/
-.slideout {
+
+.DrawerMenu {
   position: fixed;
+  z-index: 99;
+  width: 50vw;
+  height: 100vh;
   top: 0;
-  left: 0;
   bottom: 0;
-  width: 35em;
-  background-color: #ffffff;
-  border-right: 0.063em solid #f3f4f5;
-  z-index: 1000;
+  transition: transform 0.69s linear;
+  display: grid;
+}
+
+.DrawerMenu.rsvp {
   transform: translateX(-100%);
-  transition: transform 0.3s ease, width 0.3s ease;
-  -webkit-box-shadow: 1px 0 8px 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 1px 0 8px 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 1px 0 8px 0 rgba(0, 0, 0, 0.5);
 }
-/* Header */
-.slideout-header {
-  padding: 1.2em 1em 1.2em 1.7em;
-  display: flex;
-  justify-content: flex-end;
+
+.DrawerMenu.info {
+  transform: translateX(200%);
 }
-.slideout-header .slideout-close {
-  display: inline-block;
-  color: #bdc1c5;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
+
+@media (min-width: 30em) {
+  .DrawerMenu {
+    grid-template-columns: auto 1fr;
+  }
 }
-.slideout-header .slideout-close:hover,
-.slideout-header .slideout-close:focus {
-  color: #000000;
-  text-decoration: none;
-}
-.slideout-header .slideout-close:focus {
-  outline: auto 5px -webkit-focus-ring-color;
-}
-/* Content */
-.slideout-content {
-  border-top: 0.063em solid #bdc1c5;
-  padding: 3.75em 3.75em 3.75em 3.75em;
-}
-.slideout-content a {
-  color: #000000;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  text-transform: uppercase;
-  font-size: 0.875em;
-}
-.slideout-content a:hover,
-.slideout-content a:focus {
-  color: #a80700;
-  text-decoration: none;
-}
-/* Sections */
-.slideout-section .section-title {
-  font-size: 1.125em;
-  text-transform: uppercase;
-  margin: 0 0 1.563em 0;
-  padding: 0;
-}
-.slideout-section .section-list {
-  margin: 0;
-}
-.slideout-section .section-list .section-list-item {
-  padding: 0 0 0.625em 0;
-}
-/* Slideout Mask
------------------------------------*/
-.slideout-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  background-color: #000000;
-  overflow: hidden;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-/* Slideout Open
------------------------------------*/
-.slideout-open .slideout-mask {
-  opacity: 0.7;
-  visibility: visible;
-}
-.slideout-open .slideout {
+
+[data-menu]:checked + .DrawerMenu.rsvp {
   transform: translateX(0);
 }
-/* Responsive
------------------------------------*/
-@media (max-width: 768px) {
-  .slideout-open .slideout {
-    width: 100vw;
+
+[data-menu]:checked + .DrawerMenu.info {
+  transform: translateX(100%);
+}
+
+.Menu {
+  display: block;
+  flex-flow: column wrap;
+  color: #fff;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0;
+  contain: content;
+  grid-area: "MENU";
+  background-color: rebeccapurple;
+  box-sizing: border-box;
+  padding: 24px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 30em) {
+  .Menu {
+    min-width: 50vw;
   }
+}
+
+[data-menu]:checked + .DrawerMenu .Menu {
+  transform: none;
+  opacity: 1;
+  transition-delay: 300ms;
+}
+
+.Menu a {
+  text-decoration: none;
+  color: #ffffff80;
+  display: block;
+  padding: 16px 0;
+}
+
+.Menu a:hover {
+  color: #69f0ae;
+}
+
+.Menu > * + * {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.MenuOverlay {
+  display: block;
+  grid-area: "OVERLAY";
+}
+
+[data-menu]:not(:checked) + .DrawerMenu .MenuOverlay {
+  pointer-events: none;
 }
