@@ -13,10 +13,20 @@
 	without first obtaining the written permission of Production Type.
 	For more information, please visit us at www.productiontype.com
 */
+
 @font-face {
   font-family: "Cardinal Fruit";
-  src: url("fonts/cardinalfruitw-semibolditalic.eot");
-  src: url("fonts/cardinalfruitw-semibolditalic.eot?#iefix")
+  src: url("./cardinalfruitw-semibolditalic.eot");
+  src: url("./cardinalfruitw-semibolditalic.eot?#iefix")
       format("embedded-opentype"),
-    url("fonts/cardinalfruitw-semibolditalic.woff") format("woff");
+    url("./cardinalfruitw-semibolditalic.woff") format("woff");
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "Cardinal Fruit";
+  src: url("./cardinalfruitw-semibold.eot");
+  src: url("./cardinalfruitw-semibold.eot?#iefix") format("embedded-opentype"),
+    url("./cardinalfruitw-semibold.woff") format("woff");
+  font-style: normal;
 }
