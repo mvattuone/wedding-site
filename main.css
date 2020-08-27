@@ -452,3 +452,15 @@ form button[type="submit"] {
 .theme-2 button:active {
   transform: scale(0.99);
 }
+
+.thank-you {
+  display: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}

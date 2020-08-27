@@ -15,8 +15,13 @@ function handleSubmit(e) {
   const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxrsi7xtNsg5mvoZ-yGLDVDLN2CKa0BQuIN1sXalpKzE61tHZrI/exec';
   const form = e.target;
   fetch(ENDPOINT, { method: 'POST', body: new URLSearchParams([...new FormData(sanitizeValues(form))])})
-    .then( r => r.json() )
-    .then( data => console.log(data) )
+    .then(r => r.json())
+    .then(() => {
+      document.querySelector('form').classList.add('hide');
+      document.querySelector('.thank-you').classList.add('show');
+    })
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
 }
 
 function countdownTo(when, element) {
