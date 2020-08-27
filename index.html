@@ -26,10 +26,10 @@
     <div class="wrapper">
       <header>
         <nav>
-          <button id="toggle-rsvp" class="nav-item" type="button">
+          <button aria-label="Open RSVP Section" id="toggle-rsvp" class="nav-item" type="button">
             RSVP
           </button>
-          <button id="toggle-info" class="nav-item" type="button">
+          <button aria-label="Open Info Section" id="toggle-info" class="nav-item" type="button">
             Info
           </button>
         </nav>
@@ -37,32 +37,50 @@
 
         <main>
           <h1>Please join us at our zoom wedding <time datetime="2020-10-10T18:00:00-04:00">10.10.20 at 6pm</time>.</h1>
-          <div id="countdown"></div>
+          <h3><time id="countdown"></time></time>
           <h2><em>the</em> Bonecrosiers</h2>
         </main>
     </div> 
         <aside id="rsvp" class="DrawerMenu">
-          <button type="button" id="close-rsvp">X</button>
-          <h2>RSVP</h2>
-          <form>
-            <div class="field">
-              <label for="name">Name</label>
-              <input name="name" required /> 
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input name="email" type="email" required /> 
-            </div>
-            <div class="field">
-              <label for="thoughts">Thoughts</label>
-              <textarea name="thoughts"></textarea> 
-            </div>
-            <button type="submit">Ding Dong</button>
-          </form>
+          <button id="close-rsvp" aria-label="Close RSVP Section"><span>×</span></button>
+          <div class="drawer-container">
+            <h3>RSVP</h3>
+            <form>
+              <div class="field">
+                <label for="name">Name</label>
+                <input name="name" required /> 
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input name="email" type="email" required /> 
+              </div>
+              <div class="field">
+                <label for="thoughts">Thoughts</label>
+                <textarea name="thoughts"></textarea> 
+              </div>
+              <button type="submit"><span>Ding Dong</span></button>
+            </form>
+          </div>
         </aside>
         <aside id="info" class="DrawerMenu">
-            <button type="button" id="close-info">X</button>
-            <h2>Info</h2>
+            <div class="drawer-container">
+              <button id="close-info" aria-label="Close Info Section"><span>×</span></button>
+              <h3><time datetime="2020-10-10T18:00:00-04:00">Saturday, October 10th 7-8 pm </time></h3>
+              <p>
+                A simple affair.
+                Guests are welcome.
+                Attire is what you make it.
+                Speeches and such to follow.
+                Let's all just have a good time.
+              </p>
+              <p>
+              <em>If you RSVP, we will email you the Zoom link well in advance.</em>
+              </p>
+              <div class="footnote">
+                <h4>We by no means expect anything, but if you feel inclined, czech out <a href="http://example.com">Ze very optional registry.</a>
+                <h4>If you have any questions, email <a href="mailto:help@bonecrosier.com">us</a></h4>
+              </div>
+            </div>
         </aside>
     <script src="main.js"></script>
   </body>
