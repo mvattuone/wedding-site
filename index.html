@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content"noindex, nofollow" />
     <title>Bonecrosier 2020</title>
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" sizes="192x192" href="android-chrome-192x192.png" />
+    <link rel="icon" sizes="512x512" href="android-chrome-512x512.png" />
+    <link rel="icon" type='image/png' sizes='256x256' href="android-chrome-512x512.png"/>
     <link rel="stylesheet" href="main.css">
     <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script>
       const random = function (x, y) {
-       return x+(y-x+1)*crypto.getRandomValues(new Uint32Array(1))[0]/2**32|0
+        return x+(y-x+1)*crypto.getRandomValues(new Uint32Array(1))[0]/2**32|0
       };
 
       const setTheme = function(themeId) {
@@ -26,66 +31,88 @@
     <div class="wrapper">
       <header>
         <nav>
-          <button aria-label="Open RSVP Section" id="toggle-rsvp" class="nav-item" type="button">
-            RSVP
-          </button>
-          <button aria-label="Open Info Section" id="toggle-info" class="nav-item" type="button">
-            Info
-          </button>
+          <ul>
+            <li role="button" aria-label="Open RSVP Section" id="toggle-rsvp" class="nav-item" type="button">
+              <a href="#rsvp">
+                RSVP
+              </a>
+            </li>
+            <li role="button" aria-label="Open Info Section" id="toggle-info" class="nav-item" type="button">
+              <a href="#info">
+                Info
+              </a>
+            </li>
+          </ul>
         </nav>
       </header>
 
-        <main>
-          <h1>Please join us at our zoom wedding <time datetime="2020-10-10T18:00:00-04:00">10.10.20 at 6pm</time>.</h1>
-          <h3><time id="countdown"></time></time>
-          <h2><em>the</em> Bonecrosiers</h2>
-        </main>
-    </div> 
-        <aside id="rsvp" class="DrawerMenu">
-          <button id="close-rsvp" aria-label="Close RSVP Section"><span>×</span></button>
-          <div class="drawer-container">
-            <h3>RSVP</h3>
-            <form>
-              <div class="field">
-                <label for="name">Name</label>
-                <input name="name" required /> 
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input name="email" type="email" required /> 
-              </div>
-              <div class="field">
-                <label for="thoughts">Thoughts</label>
-                <textarea name="thoughts"></textarea> 
-              </div>
-              <button type="submit"><span>Ding Dong</span></button>
-            </form>
-            <div class="thank-you">
-              <h3>Extremely Tight!</h3> 
-              <p>We'll send you more details as we get closer to the date, but for now, sit back and relax... you've earned it.</p>
+      <main>
+        <h1>Please join us at our Zoom wedding <time datetime="2020-10-10T18:00:00-04:00">10.10.20 at 5pm.</time>
+          <div class="names">
+            <em class="name">— Loren & Michael</em>
+            <em class="name">— The Bonecrosiers</em>
+          </div>
+        </h1>
+      </main>
+      <footer>
+        <time id="countdown"></time>
+      </footer>
+      <aside id="rsvp" class="drawer" aria-hidden="true" aria-disabled="true" aria-live="polite">
+        <div class="drawer-container">
+          <div class="close-button-container"><button id="close-rsvp" aria-label="Close RSVP Section"><span>×</span></button></div>
+          <h2 class="section-title">RSVP</h2>
+          <form>
+            <p class="uh-oh">Oh no, there was an error and we didn't get your RSVP! Try again or <a href="help@bonecrosier.com">email Mike and Loren</a> and they'll get it sorted out.</p>
+            <div class="field">
+              <label for="name">Name</label>
+              <input name="name" required /> 
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input name="email" type="email" required /> 
+            </div>
+            <div class="field">
+              <label for="thoughts">Thoughts? (Optional)</label>
+              <textarea name="thoughts"></textarea> 
+            </div>
+            <button type="submit"><span>Ding Dong</span></button>
+          </form>
+          <div class="submitting" aria-busy="true" aria-valuenow="Please wait while your RSVP is submitted."><span>One sec!</span></div>
+          <div class="thank-you">
+            <h3>Extremely Tight!</h3><br /> 
+            <p>We'll send you more details and the Zoom link as we get closer to the date. Expect a very short, very casual, very virtual city hall style wedding.</p>
+          </div>
+        </div>
+      </aside>
+      <aside id="info" class="drawer" aria-hidden="true" aria-disabled="true">
+        <div class="drawer-container">
+          <div class="close-button-container"><button id="close-info" aria-label="Close Info Section"><span>×</span></button></div>
+          <h2 class="section-title">Info</h2>
+          <div class="info">
+            <h3><time datetime="2020-10-10T18:00:00-04:00">Saturday,<br /> October 10th<br />5-6pm</time></h3>
+            <br />
+            <br />
+            <p>
+            It's a virtual wedding ceremony.<br />
+            Guests are welcome.<br />
+            Attire is what you make it.
+            </p>
+            <br />
+            <br />
+            <p>
+            Once you RSVP, we will email you a Zoom link closer to the day of.
+            </p>
+            <br />
+            <br />
+            <div class="footnote">
+              <p>Very optional <a target="_blank" href="https://www.zola.com/registry/crosiervattuonewedding">registry.</a><p>
+              <p>If you have any questions, <a target="_blank" href="mailto:help@bonecrosier.com">email us</a>.</p>
             </div>
           </div>
-        </aside>
-        <aside id="info" class="DrawerMenu">
-            <div class="drawer-container">
-              <button id="close-info" aria-label="Close Info Section"><span>×</span></button>
-              <h3><time datetime="2020-10-10T18:00:00-04:00">Saturday, October 10th 7-8 pm </time></h3>
-              <p>
-                A simple affair.
-                Guests are welcome.
-                Attire is what you make it.
-                Speeches and such to follow.
-                Let's all just have a good time.
-              </p>
-              <p>
-              <em>If you RSVP, we will email you the Zoom link well in advance.</em>
-              </p>
-              <div class="footnote">
-                <h4>We by no means expect anything, but if you feel inclined, czech out <a href="http://example.com">Ze very optional registry.</a>
-                <h4>If you have any questions, email <a href="mailto:help@bonecrosier.com">us</a></h4>
-              </div>
-            </div>
-        </aside>
+        </div>
+      </aside>
+
+    </div> 
     <script src="main.js"></script>
   </body>
 </html>

@@ -12,16 +12,24 @@ function sanitizeValues(form) {
 
 function handleSubmit(e) { 
   e.preventDefault();
+  document.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled');
+  document.querySelector('.submitting').classList.add('show');
+  document.querySelector('form').classList.add('hide');
   const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxrsi7xtNsg5mvoZ-yGLDVDLN2CKa0BQuIN1sXalpKzE61tHZrI/exec';
   const form = e.target;
   fetch(ENDPOINT, { method: 'POST', body: new URLSearchParams([...new FormData(sanitizeValues(form))])})
     .then(r => r.json())
     .then(() => {
-      document.querySelector('form').classList.add('hide');
+      document.querySelector('button[type="submit"]').removeAttribute('disabled', 'disabled');
+      document.querySelector('.submitting').classList.remove('show');
       document.querySelector('.thank-you').classList.add('show');
     })
-    .then(data => console.log(data))
-    .catch(error => console.log(error));
+    .catch(error => {
+      document.querySelector('.uh-oh').classList.add('show');
+      document.querySelector('button[type="submit"]').removeAttribute('disabled', 'disabled');
+      document.querySelector('.submitting').classList.remove('show');
+      document.querySelector('form').classList.remove('hide');
+    });
 }
 
 function countdownTo(when, element) {
@@ -75,34 +83,43 @@ function handleKeyDown(e) {
     const id = document.activeElement.children[0].getAttribute('for');
     document.getElementById(id).setAttribute('checked', true);
   } 
-
 }
 
 function handleRsvp(e) {
   clearHash();
   document.getElementById('info').classList.remove('active');
+  document.getElementById('info').setAttribute('aria-hidden', true);
   document.getElementById('rsvp').classList.add('active');
+  document.getElementById('rsvp').setAttribute('aria-hidden', false);
 }
 
 function handleInfo(e) {
   clearHash();
   document.getElementById('rsvp').classList.remove('active');
+  document.getElementById('rsvp').setAttribute('aria-hidden', true);
   document.getElementById('info').classList.add('active');
+  document.getElementById('info').setAttribute('aria-hidden', false);
 }
 
 function handleCloseRsvp(e) {
   clearHash();
   document.getElementById('rsvp').classList.remove('active');
+  document.getElementById('rsvp').setAttribute('aria-hidden', true);
 }
 
 function handleCloseInfo(e) {
   clearHash();
   document.getElementById('info').classList.remove('active');
+  document.getElementById('info').setAttribute('aria-hidden', true);
 }
 
 function checkHash(hash) {
   if (hash.includes('rsvp')) {
     document.getElementById('rsvp').classList.add('active');
+    document.getElementById('rsvp').setAttribute('aria-hidden', false);
+  } else if (hash.includes('info')) {
+    document.getElementById('info').classList.add('active');
+    document.getElementById('info').setAttribute('aria-hidden', false);
   }
 }
 
@@ -116,6 +133,8 @@ window.onload = () => {
 
   document.getElementById('close-rsvp').addEventListener('click', handleCloseRsvp);
   document.getElementById('close-info').addEventListener('click', handleCloseInfo);
+
+  document.querySelector('body').addEventListener('touchstart', () => {});
 
   countdownTo("2020-10-10T18:00:00-04:00", countdown);
 

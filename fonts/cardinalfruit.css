@@ -29,4 +29,12 @@
   src: url("./cardinalfruitw-semibold.eot?#iefix") format("embedded-opentype"),
     url("./cardinalfruitw-semibold.woff") format("woff");
   font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Cardinal Fruit";
+  src: url("./cardinalfruitw-medium.eot");
+  src: url("./cardinalfruitw-medium.eot?#iefix") format("embedded-opentype"),
+    url("./cardinalfruitw-medium.woff") format("woff");
 }
